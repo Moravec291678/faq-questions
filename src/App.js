@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import questions from "./data";
+import Question from "./components/Question"
+import { FaAd } from "react-icons/fa";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="all-questions">
+      {questions.map((oneQuestion) => {
+        return <Question key={oneQuestion.id} {...oneQuestion}></Question>
+      })}
+      <FaAd className="icon"></FaAd>
     </div>
-  );
+    
+  )
 }
-
-export default App;
+export default App
